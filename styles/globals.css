@@ -37,8 +37,20 @@ button{
       max-width: 1440px;
       margin: 0 auto;
     }
+    .active{
+      border: 1px solid white;
+      border-radius: 17.5px;
+      width: 35px;
+      height: 35px;
+      position: relative;
+      text-align: center;
+    }
+    .active .activeText{
+      position: relative;
+      top: 1px;
+    }
 
     .addtocart{
-      -webkit-text-stroke: 0.02rem white;
+      -webkit-text-stroke: 0.03rem white;
     }
   }
