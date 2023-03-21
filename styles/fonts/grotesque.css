@@ -1,8 +1,7 @@
 @font-face {
-    font-family: 'Grotesque';
-    src: url('basement-grotesqueRegularRegular.woff2') format('woff2'),
-        url('basement-grotesqueRegularRegular.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Basement Grotesque';
+  src: url('BasementGrotesque-Black_v1.202.otf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
