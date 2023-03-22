@@ -1,34 +1,38 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Logo from '../assets/logo.svg'
 import HeaderGroup from '../assets/header-group.svg'
-import YourCart from '../assets/your-cart.svg'
-import Checkout from '../assets/checkout.svg'
 import Hero from '../assets/header.svg'
-import Backdrop from './Modal/Backdrop'
+import Backdrop from './CartModal/Backdrop'
 import CartItem from './CartItem'
-import Modal from './Modal/Modal'
+import Modal from './CartModal/Modal'
+import { CartContext } from '@/context/cartContext'
 
 const Header = () => {
-  const [cartIsOpen, setCartIsOpen] = useState<boolean>(false)
+  const {cart, cartIsOpen,setCartIsOpen} = useContext(CartContext)
+  const handleOpen = () => {
+    
+  }
   return (
     <>
-        <header className='flex justify-between items-center container pt-[33px]'>
-            <Image src={Logo} alt="Logo Basement"/>
-            <Image src={HeaderGroup} alt="Header icon group"/>
-            <button className='text-[18px] h-[48px] w-[152px] rounded-full border-[1.5px] border-white hover:bg-white hover:text-black relative' onClick={() => {setCartIsOpen(!cartIsOpen)}}><span className='relative top-[2px]' >CART (0)</span></button>
-        </header>
-        <div className='container mt-[55px]'>
-            <Image src={Hero} alt="Hero Section" />
-        </div>
+      <header className='flex justify-between items-center container pt-[33px]'>
+          <Image src={Logo} alt="Logo Basement"/>
+          <Image src={HeaderGroup} alt="Header icon group"/>
+          <button className='text-[18px] h-[48px] w-[152px] rounded-full border-[1.5px] border-white hover:bg-white hover:text-black relative' onClick={() => {setCartIsOpen(!cartIsOpen)}}><span className='relative top-[2px]' >CART ({cart ? cart.length : 0})</span></button>
+      </header>
+      <div className='container mt-[55px]'>
+          <Image src={Hero} alt="Hero Section" priority />
+      </div>
 
-        {cartIsOpen && 
-        <Backdrop setCartIsOpen={setCartIsOpen}>
-          <Modal setCartIsOpen={setCartIsOpen}>
-            <CartItem/>
-          </Modal>
-        </Backdrop>}
-
+      {cartIsOpen &&
+      <Backdrop >
+        <Modal >
+          {cart?.map((cartItem) => {
+            return <CartItem key={cartItem.id} {...cartItem}/>
+          } )}
+          
+        </Modal>
+      </Backdrop>}
     </>
   )
 }

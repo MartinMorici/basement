@@ -7,5 +7,6 @@ interface Option {
     image: string;
     price: number;
     name: string;
+    desc:string;
     options: Option[];
   }
