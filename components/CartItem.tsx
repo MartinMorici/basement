@@ -6,27 +6,27 @@ const CartItem = (cartItem: CartItem) => {
   const {addQuantity,removeQuantity,removeItem} = useContext(CartContext)
   const [actualSize, setSize] = useState<string>()
   return (
-    <article className='flex px-[14px] py-[7px] border border-white mb-9'>
-      <div className='bg-cards mr-[29px]'>
+    <article className='flex px-2 sm:px-[14px] py-[7px] border border-white mb-9'>
+      <div className='bg-cards mr-[2px] sm:mr-[29px]'>
         <Image src={cartItem.image} width={350} height={218} alt='Nombre' />
       </div>
-      <div className='flex flex-col justify-between w-full'>
+      <div className='flex flex-col gap-2 sm:gap-0 sm:justify-between w-full'>
         <div>
           <div className='flex justify-between'>
-            <h2 className='font-bold text-[35px]'>{cartItem.name} </h2>
-            <button className='text-[35px]' onClick={() => removeItem(cartItem)}>X</button>
+            <h2 className='font-bold text-[16px]  sm:text-[35px]'>{cartItem.name} </h2>
+            <button className='text-[20px] sm:text-[35px]' onClick={() => removeItem(cartItem)}>X</button>
           </div>
-          <p className='font-bold text-[21px] text-[#999999]'>{cartItem.desc}</p>
+          <p className='font-bold text-[14px] sm:text-[21px] text-[#999999]'>{cartItem.desc}</p>
         </div>
         <div>
-          <div className='font-bold text-[21px] flex items-center'>
+          <div className='font-bold text-[18px] flex items-center'>
             QUANTITY:
-            <button className='block text-center rounded-full border border-white w-[86px] h-[35px] ml-[15px] relative bottom-[2px] '>
+            <button className='block text-center rounded-full border border-white w-[60px] sm:w-[86px] h-[35px] ml-[15px] relative bottom-[2px] '>
               <span className='relative top-[2px]'><button className='remove' onClick={() => removeQuantity(cartItem)} disabled={cartItem.quantity<= 1}>-</button> {cartItem.quantity} <button onClick={() => addQuantity(cartItem)}>+</button></span>
             </button>
           </div>
-          <div className='flex justify-between mt-1'>
-            <div className='font-bold text-[21px] flex items-center'>
+          <div className='flex flex-col sm:flex-row justify-between mt-1'>
+            <div className=' font-bold text-[15px] sm:text-[21px] flex items-center'>
               SIZE:
               {cartItem.options[0].values.map((size,index) => {
                 return (
@@ -36,7 +36,7 @@ const CartItem = (cartItem: CartItem) => {
                 );
               })}
             </div>
-            <span className='block text-[35px]'>${(cartItem.price * cartItem.quantity).toFixed(2)}</span>
+            <span className='block text-[20px] sm:text-[35px]'>${(cartItem.price * cartItem.quantity).toFixed(2)}</span>
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@ export default function Home({ products }: Props) {
       </Head>
       <Header />
       <Marquee />
-      <section className='grid grid-cols-3 container gap-8 mt-[103px] mb-[94px]'>
+      <section className='grid lg:grid-cols-3 md:grid-cols-2 container md:gap-8 mt-[103px] mb-[94px]'>
         {products &&
           products.map((prod) => {
             return (

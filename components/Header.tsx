@@ -16,9 +16,9 @@ const Header = () => {
   return (
     <>
       <header className='flex justify-between items-center container pt-[33px]'>
-          <Image src={Logo} alt="Logo Basement"/>
-          <Image src={HeaderGroup} alt="Header icon group"/>
-          <button className='text-[18px] h-[48px] w-[152px] rounded-full border-[1.5px] border-white hover:bg-white hover:text-black relative' onClick={() => {setCartIsOpen(!cartIsOpen)}}><span className='relative top-[2px]' >CART ({cart ? cart.length : 0})</span></button>
+          <Image className=' w-[140px] sm:w-auto' src={Logo} alt="Logo Basement"/>
+          <Image className='hidden md:block' src={HeaderGroup} alt="Header icon group"/>
+          <button className='text-[18px] h-[48px] w-[130px] sm:w-[152px] rounded-full border-[1.5px] border-white hover:bg-white hover:text-black relative' onClick={() => {setCartIsOpen(!cartIsOpen)}}><span className='relative top-[2px]' >CART ({cart ? cart.length : 0})</span></button>
       </header>
       <div className='container mt-[55px]'>
           <Image src={Hero} alt="Hero Section" priority />
